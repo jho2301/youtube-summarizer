@@ -1,0 +1,1 @@
+export const OPENAI_API_KEY = `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`;
