@@ -1,14 +1,30 @@
 @import "tailwindcss";
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-@plugin 'tailwindcss-animate';
-@custom-variant dark (&:is(.dark *));
+/* @plugin 'tailwindcss-animate';
+@custom-variant dark (&:is(.dark *)); */
 
 * {
   font-family: Pretendard, Inter, Avenir, Helvetica, Arial, sans-serif;
   color: var(--secondary);
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  line-height: normal;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+html {
 }
 
 :root {
+  background-color: black;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -17,7 +33,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #d8d8d8;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -147,6 +163,15 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .swiper-button-prev::after {
   content: "";
   background-image: url("/public/ico_arrow-left.png");
@@ -161,4 +186,17 @@
   width: 24px;
   height: 24px;
   background-size: contain;
+}
+
+.atf-container {
+  /* 로딩 중일 때의 상태 (기본값으로 숨김) */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* 부드러운 전환 (선택 사항) */
+  /* visibility: hidden; */ /* 즉시 숨김 */
+}
+
+.atf-container.is-loaded {
+  /* 로딩 완료 후의 상태 */
+  opacity: 1;
+  visibility: visible;
 }

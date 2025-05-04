@@ -1,0 +1,9 @@
+.animate-in-view-item {
+}
+
+/* 스크롤을 만들기 위한 더미 공간 (필요하다면) */
+.spacer {
+  height: 80vh;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
